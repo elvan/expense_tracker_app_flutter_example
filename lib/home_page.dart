@@ -16,6 +16,12 @@ class HomePage extends StatelessWidget {
       amount: 26.75,
       date: DateTime.now(),
     ),
+    Transaction(
+      id: 't3',
+      title: 'Coffee',
+      amount: 12.25,
+      date: DateTime.now(),
+    ),
   ];
 
   HomePage({Key? key}) : super(key: key);
@@ -28,8 +34,9 @@ class HomePage extends StatelessWidget {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: const [
-          SizedBox(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          const SizedBox(
             width: double.infinity,
             child: Card(
               color: Colors.blue,
@@ -37,9 +44,12 @@ class HomePage extends StatelessWidget {
               child: Text('CHART'),
             ),
           ),
-          Card(
-            color: Colors.red,
-            child: Text('TRANSACTIONS'),
+          Column(
+            children: transactions.map((transaction) {
+              return Card(
+                child: Text(transaction.title),
+              );
+            }).toList(),
           ),
         ],
       ),
