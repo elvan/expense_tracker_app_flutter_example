@@ -50,6 +50,17 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 15.0,
+                        vertical: 10.0,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.purple,
+                          width: 2.0,
+                        ),
+                      ),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(transaction.amount.toString()),
                     ),
                     Column(
