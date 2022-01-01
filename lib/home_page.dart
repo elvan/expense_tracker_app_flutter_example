@@ -61,12 +61,32 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(transaction.amount.toString()),
+                      child: Text(
+                        transaction.amount.toString(),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0,
+                          color: Colors.purple,
+                        ),
+                      ),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(transaction.title),
-                        Text(transaction.date.toString()),
+                        Text(
+                          transaction.title,
+                          style: const TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          transaction.date.toString(),
+                          style: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 12.0,
+                          ),
+                        ),
                       ],
                     ),
                   ],
