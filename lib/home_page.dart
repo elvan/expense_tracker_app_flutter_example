@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
         title: const Text('Expense Tracker App'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: const [
           SizedBox(
             width: double.infinity,
@@ -20,6 +21,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Card(
+            color: Colors.red,
             child: Text('TRANSACTIONS'),
           ),
         ],
