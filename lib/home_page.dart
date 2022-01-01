@@ -9,8 +9,20 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Expense Tracker App'),
       ),
-      body: const Center(
-        child: Text('Expense Tracker App'),
+      body: Column(
+        children: const [
+          SizedBox(
+            width: double.infinity,
+            child: Card(
+              color: Colors.blue,
+              elevation: 4.0,
+              child: Text('CHART'),
+            ),
+          ),
+          Card(
+            child: Text('TRANSACTIONS'),
+          ),
+        ],
       ),
     );
   }
