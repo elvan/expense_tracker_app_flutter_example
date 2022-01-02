@@ -35,8 +35,8 @@ class HomePage extends StatelessWidget {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
+          // CHART
           const SizedBox(
             width: double.infinity,
             child: Card(
@@ -45,6 +45,34 @@ class HomePage extends StatelessWidget {
               child: Text('CHART'),
             ),
           ),
+          // FORM
+          Card(
+            elevation: 4.0,
+            child: Container(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  const TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Title',
+                    ),
+                  ),
+                  const TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Amount',
+                    ),
+                  ),
+                  FlatButton(
+                    textColor: Colors.purple,
+                    onPressed: () {},
+                    child: const Text('Add Transaction'),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          // TRANSACTIONS
           Column(
             children: transactions.map((transaction) {
               return Card(
@@ -61,7 +89,7 @@ class HomePage extends StatelessWidget {
                           width: 2.0,
                         ),
                       ),
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: Text(
                         '\$${transaction.amount}',
                         style: const TextStyle(
