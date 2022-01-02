@@ -4,7 +4,9 @@ class NewTransactions extends StatelessWidget {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
-  NewTransactions({Key? key}) : super(key: key);
+  final Function addTransaction;
+
+  NewTransactions(this.addTransaction, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,13 @@ class NewTransactions extends StatelessWidget {
             ),
             FlatButton(
               textColor: Colors.purple,
-              onPressed: () {},
+              onPressed: () {
+                addTransaction(
+                  title: titleController.text,
+                  amount: double.parse(amountController.text),
+                  date: DateTime.now(),
+                );
+              },
               child: const Text('Add Transaction'),
             ),
           ],

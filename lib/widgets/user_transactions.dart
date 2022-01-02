@@ -25,25 +25,19 @@ class _UserTransactionsState extends State<UserTransactions> {
       amount: 26.75,
       date: DateTime.now(),
     ),
-    Transaction(
-      id: 't3',
-      title: 'Coffee',
-      amount: 12.25,
-      date: DateTime.now(),
-    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        NewTransactions(),
+        NewTransactions(_addTransaction),
         TransactionList(_transactions),
       ],
     );
   }
 
-  void _addNewTransaction({
+  void _addTransaction({
     required String title,
     required double amount,
     required DateTime date,
