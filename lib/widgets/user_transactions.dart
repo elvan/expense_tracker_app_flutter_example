@@ -25,6 +25,24 @@ class _UserTransactionsState extends State<UserTransactions> {
       amount: 26.75,
       date: DateTime.now(),
     ),
+    Transaction(
+      id: 't4',
+      title: 'Books',
+      amount: 19.30,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Transportation',
+      amount: 34.45,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't5',
+      title: 'Coffee',
+      amount: 11.35,
+      date: DateTime.now(),
+    ),
   ];
 
   @override
@@ -40,13 +58,12 @@ class _UserTransactionsState extends State<UserTransactions> {
   void _addTransaction({
     required String title,
     required double amount,
-    required DateTime date,
   }) {
     final newTransaction = Transaction(
       id: DateTime.now().toString(),
       title: title,
       amount: amount,
-      date: date,
+      date: DateTime.now(),
     );
 
     setState(() {

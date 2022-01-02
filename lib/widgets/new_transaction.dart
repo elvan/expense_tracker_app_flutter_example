@@ -36,7 +36,6 @@ class NewTransactions extends StatelessWidget {
                 addTransaction(
                   title: titleController.text,
                   amount: double.parse(amountController.text),
-                  date: DateTime.now(),
                 );
               },
               child: const Text('Add Transaction'),
