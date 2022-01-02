@@ -22,27 +22,41 @@ class NewTransactions extends StatelessWidget {
               decoration: const InputDecoration(
                 labelText: 'Title',
               ),
+              keyboardType: TextInputType.text,
+              onSubmitted: (_) => _submitData,
             ),
             TextField(
               controller: amountController,
               decoration: const InputDecoration(
                 labelText: 'Amount',
               ),
-              keyboardType: TextInputType.number,
+              keyboardType: const TextInputType.numberWithOptions(
+                decimal: true,
+              ),
+              onSubmitted: (_) => _submitData,
             ),
             FlatButton(
               textColor: Colors.purple,
-              onPressed: () {
-                addTransaction(
-                  title: titleController.text,
-                  amount: double.parse(amountController.text),
-                );
-              },
+              onPressed: _submitData,
               child: const Text('Add Transaction'),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  void _submitData() {
+    final enteredTitle = titleController.text;
+    final enteredAmount = double.parse(amountController.text);
+
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+      return;
+    }
+
+    addTransaction(
+      title: enteredTitle,
+      amount: enteredAmount,
     );
   }
 }
