@@ -38,8 +38,25 @@ class _UserTransactionsState extends State<UserTransactions> {
     return Column(
       children: [
         NewTransactions(),
-        TransactionList(transactions: _transactions),
+        TransactionList(_transactions),
       ],
     );
+  }
+
+  void _addNewTransaction({
+    required String title,
+    required double amount,
+    required DateTime date,
+  }) {
+    final newTransaction = Transaction(
+      id: DateTime.now().toString(),
+      title: title,
+      amount: amount,
+      date: date,
+    );
+
+    setState(() {
+      _transactions.add(newTransaction);
+    });
   }
 }
