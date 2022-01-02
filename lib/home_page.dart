@@ -25,7 +25,9 @@ class HomePage extends StatelessWidget {
     ),
   ];
 
-  HomePage({Key? key}) : super(key: key);
+  final titleController = TextEditingController();
+
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -53,19 +55,26 @@ class HomePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  const TextField(
-                    decoration: InputDecoration(
+                  TextField(
+                    controller: titleController,
+                    decoration: const InputDecoration(
                       labelText: 'Title',
                     ),
                   ),
-                  const TextField(
-                    decoration: InputDecoration(
+                  TextField(
+                    controller: amountController,
+                    decoration: const InputDecoration(
                       labelText: 'Amount',
                     ),
+                    keyboardType: TextInputType.number,
                   ),
                   FlatButton(
                     textColor: Colors.purple,
-                    onPressed: () {},
+                    onPressed: () {
+                      print('Add Transaction');
+                      print(titleController.text);
+                      print(amountController.text);
+                    },
                     child: const Text('Add Transaction'),
                   ),
                 ],
